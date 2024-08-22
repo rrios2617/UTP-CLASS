@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Ejercicio3 {
     public static void main(String[] args) {
         double n1;
-        int opcion;
+        int opcion,resultado;
         Scanner input = new Scanner(System.in);
         
         System.out.println("Elige el tipo de redondeo:");
@@ -21,14 +21,14 @@ public class Ejercicio3 {
         if (opcion==1){
             System.out.print("Ingrese un numero en decimal: ");
             n1 = input.nextDouble();
-            n1 = Math.ceil(n1);
-            System.out.println("El numero redondeando hacia arriba: "+n1);
+            resultado = (int) Math.ceil(n1);
+            System.out.println("El numero redondeando hacia arriba: "+resultado);
         }
         else if (opcion==2){
             System.out.print("Ingrese un numero en decimal: ");
             n1 = input.nextDouble();
-            n1 = Math.floor(n1);
-            System.out.println("El numero redondeando hacia abajo: "+n1);
+            resultado = (int) Math.floor(n1);
+            System.out.println("El numero redondeando hacia abajo: "+resultado);
         }
         else{
             System.out.println("Eligiste una opcion incorrecta");
