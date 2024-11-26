@@ -17,11 +17,7 @@ public class Ejercicio2 {
         dado1 = (short)((Math.random() * (7-1))+1);
         dado2 = (short)((Math.random() * (7-1))+1);
         resultado = (short) (dado1 + dado2);
-        System.out.println("El Jugador "+jugador+" \nSaco en el dado1: "+dado1+" \nY en el dado2: "+dado2+" \nLa suma de los dados es:: "+resultado);
-        
-        
-        
-        
+        System.out.println("El Jugador "+jugador+" \nSaco en el dado1: "+dado1+" \nY en el dado2: "+dado2+" \nLa suma de los dados es:: "+resultado);     
     }
     
 }

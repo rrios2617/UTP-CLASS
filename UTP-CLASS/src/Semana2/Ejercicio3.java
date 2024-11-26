@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Ejercicio3 {
     public static void main(String[] args) {
         double n1;
-        int opcion,resultado;
+        int opcion, resultado;
         Scanner input = new Scanner(System.in);
         
         System.out.println("Elige el tipo de redondeo:");
