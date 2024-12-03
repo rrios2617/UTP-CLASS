@@ -64,23 +64,27 @@ public class SistemaPagosISP {
     }
 
     public static void registrarOrdenPago() {
-        System.out.print("Ingrese el codigo del cliente: ");
-        String codigo = scanner.nextLine();
-        Cliente cliente = buscarCliente(codigo);
+    System.out.print("Ingrese el codigo del cliente: ");
+    String codigo = scanner.nextLine();
+    Cliente cliente = buscarCliente(codigo);
 
-        if (cliente != null) {
-            System.out.print("Ingrese el monto a pagar: ");
-            double monto = scanner.nextDouble();
-            System.out.print("Ingrese la cantidad de meses: ");
-            int meses = scanner.nextInt();
+    if (cliente != null) {
+        System.out.print("Ingrese el monto mensual a pagar: ");
+        double montoMensual = scanner.nextDouble();
+        System.out.print("Ingrese la cantidad de meses: ");
+        int meses = scanner.nextInt();
 
-            OrdenPago orden = new OrdenPago(cliente, monto, meses);
-            ordenes.add(orden);
-            System.out.println("Orden de pago registrada exitosamente.");
-        } else {
-            System.out.println("Cliente no encontrado.");
-        }
+        // Calcular el monto total
+        double montoTotal = montoMensual * meses;
+
+        // Crear y registrar la orden de pago con el monto total
+        OrdenPago orden = new OrdenPago(cliente, montoTotal, meses);
+        ordenes.add(orden);
+        System.out.printf("Orden de pago registrada exitosamente. Monto Total: %.2f%n", montoTotal);
+    } else {
+        System.out.println("Cliente no encontrado.");
     }
+}
 
     public static Cliente buscarCliente(String codigo) {
         for (Cliente cliente : clientes) {

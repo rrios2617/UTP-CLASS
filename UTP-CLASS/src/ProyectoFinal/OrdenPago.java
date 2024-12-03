@@ -23,11 +23,24 @@ public class OrdenPago {
 
     // Metodo para calcular la fecha de vencimiento (ultimo dia del mes)
     private Date calcularFechaVencimiento() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.MONTH, meses); // Agregar meses
-        calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH)); // Ultimo dia del mes
-        return calendar.getTime();
-    }
+    Calendar calendar = Calendar.getInstance();
+
+    // Ajustar al último día del mes anterior
+    calendar.add(Calendar.MONTH, -1);
+    calendar.set(Calendar.DAY_OF_MONTH, calendar.getActualMaximum(Calendar.DAY_OF_MONTH));
+    Date fechaFacturacion = calendar.getTime();
+
+    // Añadir un plazo de 7 días para obtener la fecha de vencimiento
+    calendar.add(Calendar.DAY_OF_MONTH, 7);
+    Date fechaVencimiento = calendar.getTime();
+
+    // Imprimir fechas para verificar en consola
+    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+    System.out.printf("Fecha de Facturacion: %s - Fecha de Vencimiento: %s%n",
+            sdf.format(fechaFacturacion), sdf.format(fechaVencimiento));
+
+    return fechaVencimiento; // Retorna la fecha de vencimiento calculada
+} 
 
     // Metodo para marcar una orden como pagada
     public void marcarComoPagado() {
